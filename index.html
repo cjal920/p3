@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FlMkr</title>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Cormorant+Garamond:300|Josefin+Slab|Old+Standard+TT|Quicksand|" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css"> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script> -->
+  <!--<link rel="stylesheet" type="text/css" href="assets/css/style.css">-->
+</head>
+<body>
+    <h1>OPENING CREDITS MUSIC</h1>
+    <audio id="cava-rust">
+        <source src="assets/audio/cava-rust.mp3">
+    </audio>
+
+    <button id="play-btn">PLAY</button>
+    <button id="pause-btn">PAUSE</button>
+    <button id="pp-btn">PLAY&PAUSE</button>
+
+    <div class="header">
+        <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+            <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<script type="text/javascript">
+ var start = function()  {
+
+        var openCredits = document.getElementById("cava-rust");
+        var playButton = document.getElementById("play-btn");
+        var pauseButton = document.getElementById("pause-btn");
+        var ppButton = document.getElementById("pp-btn");
+       
+        var soundPlay = function(e) {
+            openCredits.play();
+            console.log("it's playing!")
+        }
+       
+        var soundPause = function(e) {
+            openCredits.pause();
+            console.log("it paused!")
+        }
+
+        var soundPP = function(e)   {
+            if (openCredits.paused)  {
+                openCredits.play();
+                ppButton.textContent = "PAUSE"
+            }
+            else {
+                openCredits.pause();
+                ppButton.textContent = "PLAY"
+
+        }
+    }
+   
+   $("#play-btn").on("click", function() {
+       soundPlay(openCredits);
+   });
+
+    $("#pause-btn").on("click", function() {
+       soundPause(openCredits);
+    });
+
+    $("#pp-btn").on("click", function() {
+       soundPP(openCredits);
+   }
+
+   )};
+
+  //  playButton.addEventListener("click", soundPlay, false);
+   // pauseButton.addEventListener("click", soundPause, false);
+   // ppButton.addEventListener("click", soundPP, false);
+    
+
+
+window.onload = start;
+
+
+</script>
+
+
+
+
+</body>
+</html>
